@@ -1,0 +1,15 @@
+package sample;
+
+message EchoRequest {
+  string text = 1;
+}
+
+message EchoResponse {
+  string text = 1;
+}
+
+// Define your WASM's API here
+service WasmService {
+  rpc Echo (EchoRequest) returns (EchoResponse) {}
+}
+
