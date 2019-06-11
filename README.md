@@ -65,7 +65,7 @@ message AdditionRequest {
 }
 
 message AdditionResponse {
-  int sum = 1;
+  int32 sum = 1;
 }
 
 // Define your WASM's API here
