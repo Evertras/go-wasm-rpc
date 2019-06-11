@@ -16,6 +16,7 @@ node_modules
 
 # Compiled TS
 front/index.js
+front/index.js.map
 
 # Compiled protos
 front/src/proto
