@@ -12,6 +12,10 @@ type wasmServer struct{}
 // This doesn't have to be a separate package, but it makes the pipeline cleaner.
 var _ sample.WasmServiceServer = &wasmServer{}
 
-func (s *wasmServer) Echo(context.Context, *sample.EchoRequest) (*sample.EchoResponse, error) {
-	return nil, nil
+func (s *wasmServer) Echo(ctx context.Context, req *sample.EchoRequest) (*sample.EchoResponse, error) {
+	res := &sample.EchoResponse{}
+
+	res.Text = req.Text + " (with an echo!)"
+
+	return res, nil
 }

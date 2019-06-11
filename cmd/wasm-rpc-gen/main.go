@@ -59,6 +59,7 @@ var returnedArray js.TypedArray
 var server <<.PackageImportShort>>.WasmServiceServer = &wasmServer{}
 
 func RegisterWasmCallbacks(base js.Value) {
+	base.Set("ready", js.ValueOf(true))
 <<range .Methods>>	base.Set("<<.Name>>", js.FuncOf(<<.Name>>))
 <<end>>}
 <<$packageImportShort := .PackageImportShort>><<range .Methods>>
