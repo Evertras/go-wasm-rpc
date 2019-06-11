@@ -12,7 +12,7 @@ loads the WASM and makes a sample call to it with the output in console.
 
 ## What adding to the API looks like
 
-In the sample, the API definition is located here: [proto/svc_sample.proto]
+In the sample, the API definition is [located here](proto/svc_sample.proto).
 
 ```protobuf
 syntax = "proto3";
@@ -66,7 +66,7 @@ service WasmService {
 
 Running `make` will generate all the proto files for Go and Typescript.
 
-Now you'd add an implementation [in lib/wasm/svc_wasm.go](lib/wasm/svc_wasm.go):
+Now you'd [add an implementation in your Go WASM service](lib/wasm/svc_wasm.go):
 
 ```go
 func (s *wasmServer) Add(ctx context.Context, req *sample.AdditionRequest) (*sample.AdditionResponse, error) {
