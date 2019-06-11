@@ -3,7 +3,7 @@ WASM_FILES=$(shell find lib -name "*.go" ! -path "lib/static/*" ! -path "lib/ser
 GO_PROTO_BUILD_DIR=lib/sample
 TS_PROTO_BUILD_DIR=front/src/proto
 
-all: test build-sample-server build-sample-wasm
+all: test build-sample-server build-sample-wasm front/index.js
 
 clean:
 	rm -rf $(GO_PROTO_BUILD_DIR)
