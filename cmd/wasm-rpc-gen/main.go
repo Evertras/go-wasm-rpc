@@ -64,34 +64,38 @@ func RegisterWasmCallbacks(base js.Value) {
 <<end>>}
 <<$packageImportShort := .PackageImportShort>><<range .Methods>>
 func <<.Name>>(this js.Value, args []js.Value) interface{} {
-	msg := &<<$packageImportShort>>.<<.ReqType>>{}
+	go func() {
+		msg := &<<$packageImportShort>>.<<.ReqType>>{}
 
-	// This is awful and should feel awful, but proof of concept... (see above)
-	byteSlice := typedArrayToByteSlice(args[0])
+		// This is awful and should feel awful, but proof of concept... (see above)
+		byteSlice := typedArrayToByteSlice(args[0])
 
-	err := proto.Unmarshal(byteSlice, msg)
+		err := proto.Unmarshal(byteSlice, msg)
 
-	if err != nil {
-		panic(err)
-	}
+		if err != nil {
+			args[1].Invoke(js.ValueOf(err.Error()))
+		}
 
-	res, err := server.<<.Name>>(context.Background(), msg)
+		res, err := server.<<.Name>>(context.Background(), msg)
 
-	if err != nil {
-		panic(err)
-	}
+		if err != nil {
+			args[1].Invoke(js.ValueOf(err.Error()))
+		}
 
-	marshaled, err := proto.Marshal(res)
+		marshaled, err := proto.Marshal(res)
 
-	if err != nil {
-		panic(err)
-	}
+		if err != nil {
+			args[1].Invoke(js.ValueOf(err.Error()))
+		}
 
-	// This is safe on initial zero value
-	returnedArray.Release()
-	returnedArray = js.TypedArrayOf(marshaled)
+		// This is safe on initial zero value
+		returnedArray.Release()
+		returnedArray = js.TypedArrayOf(marshaled)
 
-	return returnedArray
+		args[1].Invoke(js.Undefined(), returnedArray)
+	}()
+
+	return nil
 }
 <<end>>
 `
