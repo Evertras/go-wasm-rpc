@@ -11,6 +11,13 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
+# Nope
+node_modules
+
 # Compiled TS
 front/index.js
+
+# Compiled protos
+front/src/proto
+lib/service
 
