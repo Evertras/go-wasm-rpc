@@ -7,6 +7,7 @@ all: test build
 
 clean:
 	rm -rf $(GO_PROTO_BUILD_DIR)
+	rm -rf $(TS_PROTO_BUILD_DIR)
 
 build-sample-server: protos
 	CG_ENABLED=0 go build -o $(BINARY_NAME) -v ./cmd/server/main.go
