@@ -49,8 +49,8 @@ message EchoResponse {
 }
 
 message AdditionRequest {
-  int x = 1;
-  int y = 2;
+  int32 x = 1;
+  int32 y = 2;
 }
 
 message AdditionResponse {
