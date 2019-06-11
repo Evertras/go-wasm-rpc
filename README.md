@@ -5,12 +5,18 @@ The intent is to allow you to use an existing toolset (gRPC, protobuf)
 to allow a simple, type-safe API between JS (with Typescript) and
 a Go WASM module.
 
+With this setup, calls to WASM work just like a regular gRPC call using
+[Protobufjs](https://github.com/protobufjs/protobuf.js).  The request is
+serialized, passed to the WASM, and deserialized within.  The included
+tool generates code to act as a translation layer for all this to happen
+and should be part of the build pipeline.
+
 This repo consists both of the tool itself and a sample for reference.
 Run `make` to build everything.  Run `./sample-server` after `make` to
 run a server that will serve the front end on `localhost:8000`, which then
 loads the WASM and makes a sample call to it with the output in console.
 
-## What adding to the API looks like
+## What using this API looks like
 
 In the sample, the API definition is [located here](proto/svc_sample.proto).
 
