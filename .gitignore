@@ -20,5 +20,10 @@ front/index.js.map
 
 # Compiled protos
 front/src/proto
-lib/service
+lib/sample
+lib/wasm/generated.go
+
+# Compiled binaries
+front/lib.wasm
+sample-server
 

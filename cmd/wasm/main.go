@@ -5,7 +5,7 @@ package main
 import (
 	"syscall/js"
 
-	"github.com/Evertras/go-wasm-rpc/lib/sample"
+	"github.com/Evertras/go-wasm-rpc/lib/wasm"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 	js.Global().Set("gowasm", map[string]interface{}{})
 	base := js.Global().Get("gowasm")
 
-	sample.RegisterWasmCallbacks(base)
+	wasm.RegisterWasmCallbacks(base)
 
 	println("WASM initialized")
 
