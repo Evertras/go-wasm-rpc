@@ -122,7 +122,7 @@ Finally, generate the translation layer in Go by using the following:
 
 ```bash
 # If you haven't run this yet
-go get github.com/Evertras/go-wasm-rpc/cmd/wasm-rpc-gen
+go get -u github.com/Evertras/go-wasm-rpc/cmd/wasm-rpc-gen
 
 # Replace with your files/packages
 wasm-rpc-gen lib/sample/svc_sample.pb.go lib/wasm/generated.go github.com/Evertras/go-wasm-rpc/lib/sample wasm
