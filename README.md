@@ -128,6 +128,12 @@ go get -u github.com/Evertras/go-wasm-rpc/cmd/wasm-rpc-gen
 wasm-rpc-gen lib/sample/svc_sample.pb.go lib/wasm/generated.go github.com/Evertras/go-wasm-rpc/lib/sample wasm
 ``` 
 
+## How it works
+
+Here's a quick diagram of where this fits into an architecture:
+
+![diagram.png](./diagram.png)
+
 ## Todo
 
 As stated in the generated code, memory copying is currently awful.  A [future release of Go](https://github.com/golang/go/commit/c468ad04177c422534ad1ed4547295935f84743d)
@@ -137,9 +143,9 @@ commit goes live.
 
 The actual usage of this tool is clunky.  It would be nicer to use [Cobra](https://github.com/spf13/cobra)
 or similar down the line... maybe.  The pain is mitigated by the fact that it's a one time setup
-that will be buried in a Makefile or equivalent somewhere.
+that will be buried in a Makefile or equivalent somewhere, but that's not an excuse.
 
-The organization of this repo is a little messy.  Open to suggestions.
+The organization of this repo is messy.  Open to suggestions.
 
 This README is a first pass and could almost certainly be improved and will need updating
 when the organization of the repo is improved.
