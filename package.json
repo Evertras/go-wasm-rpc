@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Evertras/go-wasm-rpc#readme",
   "devDependencies": {
-    "protobufjs": "^6.8.8",
+    "protobufjs": "^6.11.3",
     "ts-loader": "^6.0.2",
     "typescript": "^3.5.1",
     "webpack": "^4.33.0",
